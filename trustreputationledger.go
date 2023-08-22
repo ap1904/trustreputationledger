@@ -11,14 +11,11 @@ import (
 	"fmt"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
-	a "github.com/pavva91/assets"
-	gen "github.com/pavva91/generalcc"
 	"strconv"
 
-	// a "github.com/pavva91/trustreputationledger/assets"
-	// gen "github.com/pavva91/trustreputationledger/generalcc"
-	// in "github.com/pavva91/trustreputationledger/invokeapi"
-	in "github.com/pavva91/invokeapi"
+	a "github.com/ap1904/trustreputationledger/assets"
+	gen "github.com/ap1904/trustreputationledger/generalcc"
+	in "github.com/ap1904/trustreputationledger/invokeapi"
 )
 
 var log = shim.NewLogger("trustreputationledger")

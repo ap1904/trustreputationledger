@@ -16,7 +16,7 @@ import (
 	pb "github.com/hyperledger/fabric/protos/peer"
 	"github.com/pavva91/arglib"
 	"strconv"
-	)
+)
 
 // =====================================================================================================================
 // GetValue - get a generic variable from ledger
@@ -154,8 +154,6 @@ func ReadAllStateDB(stub shim.ChaincodeStubInterface) pb.Response {
 	return shim.Success(buffer.Bytes())
 }
 
-
-
 // TODO: Trovare il modo di generalizzare senza usare assets.Service
 // =====================================================================================================================
 // Get history of a general asset in the Chain - The chain is a transaction log, structured as hash-linked blocks
@@ -260,25 +258,25 @@ func PrintResultsIterator(queryIterator shim.StateQueryIteratorInterface, stub s
 	return nil
 }
 
-func GetNextIncrementalKey(keyPrefix string, stub shim.ChaincodeStubInterface)(string, error ){
+func GetNextIncrementalKey(keyPrefix string, stub shim.ChaincodeStubInterface) (string, error) {
 	// TODO: Levare nextIncrementalKey prefix di 3 lettere in testa
 
-	startKey := keyPrefix+""
-	endKey := keyPrefix+""
-	i:=0
+	startKey := keyPrefix + ""
+	endKey := keyPrefix + ""
+	i := 0
 
 	//i need to get the last IncrementalKey on the ledger
 	resultsIterator, err := stub.GetStateByRange(startKey, endKey)
 	if err != nil {
-		return "",err
+		return "", err
 	}
 	defer resultsIterator.Close()
 
 	for resultsIterator.HasNext() {
 		resultsIterator.Next()
-		i=i+1
+		i = i + 1
 	}
 
 	nextIncrementalKey := keyPrefix + strconv.Itoa(i)
-	return nextIncrementalKey,nil
+	return nextIncrementalKey, nil
 }
