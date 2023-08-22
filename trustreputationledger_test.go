@@ -18,12 +18,12 @@ package main
 
 import (
 	"encoding/json"
-	lib "github.com/pavva91/arglib"
+	lib "github.com/ap1904/trustreputationledger/arglib"
 	"testing"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 
-	a "github.com/pavva91/assets"
+	a "github.com/ap1904/trustreputationledger/assets"
 )
 
 var testLog = shim.NewLogger("trustreputationledger_test")
